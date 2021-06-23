@@ -44,6 +44,7 @@ exports = class Scaleform {
 
     dispose() {
         mp.game.graphics.setScaleformMovieAsNoLongerNeeded(this.handle);
+        this.handle = 0;
     }
 
     // Static functions

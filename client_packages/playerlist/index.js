@@ -52,8 +52,7 @@ function updateCard() {
     const players = paginate(playerList, PLAYERS_PER_PAGE, playerListCurPage);
     players.forEach((player, index) => {
         const color = player.getVariable("PlayerListColor") || 116; /* HUD_COLOUR_FREEMODE */
-        const tag = player.getVariable("PlayerListTag") ? `   ${player.getVariable("PlayerListTag")}` : "";
-        cardScaleform.callFunction("SET_DATA_SLOT", index, "", `${player.name.replace(SANITIZE_PATTERN, "")} (${player.remoteId})`, color, 0, "", "", tag, 2, "CHAR_DEFAULT", "CHAR_DEFAULT", "");
+        cardScaleform.callFunction("SET_DATA_SLOT", index, "", `${player.name.replace(SANITIZE_PATTERN, "")} (${player.remoteId})`, color, 0, "", "", player.getVariable("__playerListTag") || "", 2, "CHAR_DEFAULT", "CHAR_DEFAULT", "");
     });
 
     cardScaleform.callFunction("DISPLAY_VIEW");
